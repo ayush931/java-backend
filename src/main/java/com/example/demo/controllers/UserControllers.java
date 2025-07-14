@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.dto.requests.UserCreateRequest;
+import com.example.demo.models.dto.requests.UserLoginRequest;
 import com.example.demo.models.dto.response.ApiResponse;
 import com.example.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,4 +19,9 @@ public class UserControllers {
     public ApiResponse<String> registerUser(@RequestBody UserCreateRequest request){
         return userService.registerUser(request);
     };
+
+    @PostMapping("/login")
+    public ApiResponse<String> loginUser(@RequestBody UserLoginRequest request) {
+        return userService.loginUser(request);
+    }
 }
